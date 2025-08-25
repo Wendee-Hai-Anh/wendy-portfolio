@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link href="style-photo.css" rel="stylesheet" type="text/css" />
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100..800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <audio id="glitch" src="music.mp3" preload="auto" loop></audio>
+    <audio id="pressSfx" src="pressing-sound.mp3" preload="auto"></audio>
+    <section>
+      <button id="soundToggle" class="sound-btn" aria-pressed="false" aria-label="Play sound">
+  <!-- PLAY icon -->
+  <svg class="icon icon-play" viewBox="0 0 24 24" aria-hidden="true">
+    <rect x="1" y="1" width="22" height="22" rx="6" ry="6" fill="rgba(0,0,0,.55)" stroke="#00FF66" stroke-width="2"/>
+    <path d="M9 7 L18 12 L9 17 Z" fill="#00FF66"/>
+  </svg>
+  <!-- STOP icon -->
+  <svg class="icon icon-stop" viewBox="0 0 24 24" aria-hidden="true">
+    <rect x="1" y="1" width="22" height="22" rx="6" ry="6" fill="rgba(0,0,0,.55)" stroke="#00FF66" stroke-width="2"/>
+    <rect x="7" y="7" width="10" height="10" fill="#00FF66"/>
+  </svg>
+</button>
+    <div class="landing">
+        <div>
+            <span id="work">WORKS</span>
+            <a id="home" href="index.html" class="menu-link">HOME</a>
+        </div>
+            <img src="chip1.gif" alt="chip" width= 100% height= auto id="chip">
+    </div>
+    <main class="page">
+
+        <!-- HERO -->
+        <div class="hero-wrap">
+            <figure class="hero">
+                <img src="uix2.png" alt="Project hero image"/>
+                <figcaption>#UIX_02</figcaption>
+            </figure>
+        </div>
+
+        <!-- TITLE + DATE -->
+        <div class="titlebar">
+            <h1 id="project-title">Xuan Tinh Co Ban</h1>
+            <time datetime="2025-08-13" aria-label="Date Created">May 2025</time>
+        </div>
+
+        <!-- META / DETAILS -->
+        <section class="meta" aria-labelledby="meta-title">
+            <dl>
+                <dt>Initiated:</dt>
+                <dd>May 2025</dd>
+                <dt>Creator:</dt>
+                <dd>WENDY v18.5<br>Minh Vy<br>Ngoc Chi<br>Nhi MuMu <br>Ha Fhuong<br>Mai Han</dd>
+                <dt>File Location:</dt>
+                <dd><a href="https://www.behance.net/gallery/227579927/Xuan-Tinh-C-Bn" target="_blank"
+                        rel="noopener">Link to
+                        project</a></dd>
+            </dl>
+            <div class="details">
+                <strong>General:</strong>
+                <p>
+                    In System WENDY, UIX_02 extends the UI/UX module with a responsive web design for Xuân Tình Cổ Bản, presented in both desktop and mobile formats. Conceived as a fictional multigenerational festival, the project employs single-page scrolling, interaction, and visual storytelling to connect audiences with the beauty of Vietnamese culture through traditional music and communal activities. This fragment reflects the system’s evolving ability to merge cultural narrative with digital interface—where storytelling, user experience, and interaction converge as one.
+                </p>
+            </div>
+        </section>
+
+        <!-- FEATURES -->
+        <section class="feature" aria-labelledby="features-title">
+            <h2 id="features-title">Features</h2>
+            <video width=100% height="auto" controls>
+                <source src="uix2video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </section>
+
+        <div class="spacer" aria-hidden="true">· · ·</div>
+
+        <!-- UPDATES -->
+        <section class="updates" aria-labelledby="updates-title">
+            <h2 id="updates-title">Updated History</h2>
+            <div class="grid">
+                <article class="update-card">
+                    <img src="uix2-7.png" alt="Update on 2025-06-01" id="pho3" />
+                </article>
+                <article class="update-card">
+                    <img src="uix2-1.png" alt="Update on 2025-05-12" id="pho4" />
+                </article>
+                <article class="update-card">
+                    <img src="uix2-2.png" alt="Update on 2025-04-02" id="pho5" />
+                </article>
+                <article class="update-card">
+                    <img src="uix2-3.png" alt="Update on 2025-03-10" id="pho6" />
+                </article>
+                <article class="update-card">
+                    <img src="uix2-4.png" alt="Update on 2025-02-01" id="pho7" />
+                </article>
+                <article class="update-card">
+                    <img src="uix2-5.png" alt="Update on 2025-02-01" id="pho7" />
+                </article>
+                <article class="update-card">
+                    <img src="uix2-6.png" alt="Update on 2025-02-01" id="pho7" />
+                </article>
+            </div>
+            </div>
+        </section>
+        <footer>
+            <p><strong>Contact for bug reporting</strong><br>
+                <a href="haianh.music10@gmail.com">haianh.music10@gmail.com</a>
+            </p>
+        </footer>
+    </main>
+    <button id="backToTop" class="to-top" aria-label="Back to top" title="Back to top">▲</button>
+    <script src="script.js" defer></script>
+</body>
+<h1

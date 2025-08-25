@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100..800&display=swap" rel="stylesheet">
+    <title>Fragmentations of Myself • WENDY SYSTEM</title>
+</head>
+
+<body>
+  <audio id="glitch" src="music.mp3" preload="auto" loop></audio>
+  <audio id="pressSfx" src="pressing-sound.mp3" preload="auto"></audio>
+    <section>
+      <button id="soundToggle" class="sound-btn" aria-pressed="false" aria-label="Play sound">
+  <!-- PLAY icon -->
+  <svg class="icon icon-play" viewBox="0 0 24 24" aria-hidden="true">
+    <rect x="1" y="1" width="22" height="22" rx="6" ry="6" fill="rgba(0,0,0,.55)" stroke="#00FF66" stroke-width="2"/>
+    <path d="M9 7 L18 12 L9 17 Z" fill="#00FF66"/>
+  </svg>
+  <!-- STOP icon -->
+  <svg class="icon icon-stop" viewBox="0 0 24 24" aria-hidden="true">
+    <rect x="1" y="1" width="22" height="22" rx="6" ry="6" fill="rgba(0,0,0,.55)" stroke="#00FF66" stroke-width="2"/>
+    <rect x="7" y="7" width="10" height="10" fill="#00FF66"/>
+  </svg>
+</button>
+        <div class="landing">
+            <div class="swarm" id="swarm" aria-hidden="true"></div>
+            <span id="headline" class="glitch" data-text="HELLO, I AM UNDER">HELLO, <br> I AM WENDY</span>
+            <span id="headline1" class="glitch" data-text="I'M UNDER CONSTRUCTION">I AM UNDER CONSTRUCTION</span>
+            <img src="landing-glitch.gif" alt="glitch-landing" width=auto height=100% id="head">
+            <div class="menu">
+          <span id="works">WORKS</span>
+          <span id="about">ABOUT</span>
+        </div>
+        <img src="chip1.gif" alt="chip" width= 100% height= auto id="chip">
+        </div>
+    </section>
+    <section class="boot-wrap" id="rain">
+        <div class="boot-screen" id="bootRain">
+            <canvas id="binaryRain" class="rain"></canvas>
+
+            <!-- Final centered message -->
+            <div class="boot-overlay" id="bootOverlay" tabindex="-1">
+                <div class="boot-box">SYSTEM BOOTING</div>
+            </div>
+        </div>
+    </section>
+    <section class="booted-wrap" id="booted">
+  <div class="booted-inner">
+    <div class="boot-box">SYSTEM WENDY BOOTED</div>
+  </div>
+</section>
+
+<section class="intro-props" id="grid">
+  <section class="crt-wrap">
+    <div class="crt" id="propsScreen" role="region" aria-label="Properties Screen">
+      <div class="crt-bar">
+        <span class="crt-led"></span>
+        <span class="crt-title">PROPERTIES.TXT</span>
+      </div>
+      <pre class="crt-text" id="crtText" aria-live="polite"></pre>
+    </div>
+  </section>
+  <section class="intro">
+    <img src="intro-board2.gif" alt="intro-board" />
+  </section>
+</section>
+<div id="worksOverlay" class="works-overlay" aria-hidden="true">
+  <div class="scrim" data-close></div>
+
+  <aside class="drawer" role="dialog" aria-modal="true" aria-labelledby="drawerTitle">
+    <header class="drawer-head">
+      <button class="drawer-close" type="button" aria-label="Close">✕</button>
+      <h2 id="drawerTitle">MODULE SELECTORS</h2>
+    </header>
+
+  <div class="mods">
+  <!-- Photography -->
+  <a class="mod mod-fade"
+     href="photography.html"
+     target="_blank"
+     style="--img:url('elements-02.png');--img-hover:url('elements-01.png')">
+    <span class="name">PHOTOGRAPHY</span>
+  </a>
+
+  <!-- UI/UX -->
+  <a class="mod mod-fade"
+     href="module.html"
+     style="--img:url('elements-05.png');--img-hover:url('elements-04.png')">
+    <span class="name">UI / UX</span>
+  </a>
+
+  <!-- Hand-drawn -->
+  <a class="mod mod-fade"
+     href="hdr1.html"
+     target="_blank"
+     style="--img:url('elements-21.png');--img-hover:url('elements-17.png')">
+    <span class="name">HAND-DRAWN</span>
+  </a>
+
+  <!-- Social -->
+  <a class="mod mod-fade"
+     href="module.html"
+     style="--img:url('elements-16.png');--img-hover:url('elements-10.png')">
+    <span class="name">SOCIAL</span>
+  </a>
+
+  <!-- Graphic -->
+  <a class="mod mod-fade"
+     href="grp1.html"
+     target="_blank"
+     style="--img:url('elements-19.png');--img-hover:url('elements-18.png')">
+    <span class="name">GRAPHIC DESIGN</span>
+  </a>
+
+  <!-- Undefined -->
+  <a class="mod mod-fade is-disabled"
+     href="#"
+     style="--img:url('elements-09.png');--img-hover:url('elements-09.png')"
+     aria-disabled="true">
+    <span class="name">COMING SOON</span>
+  </a>
+</div>
+  </aside>
+</div>
+<button id="backToTop" class="to-top" aria-label="Back to top" title="Back to top">▲</button>
+    <script src="script.js" defer></script>
+</body>
+</html>

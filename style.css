@@ -1,0 +1,1228 @@
+html {
+    scroll-behavior: smooth;
+}
+
+@font-face {
+    font-family: "CasioFX";
+    src: url("casio-fx-9860gii.woff") format("woff");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+:root {
+    --color-primary: #00FF66;
+    --color-secondary: #FF003C;
+    --color-background: black;
+    --font-base: 1rem;
+    --space: 3rem;
+    --radius: 10px;
+
+    /*for the binary animation*/
+    --crt-bg: #08130c;
+    --crt-fg: #a8ffb0;
+    /* phosphor green */
+    --crt-glow: #46ff7a;
+    --crt-bezel: #1e1e1e;
+
+    /* for the screens*/
+    --crt-bg: var(--color-background);
+    --crt-fg: var(--color-primary);
+    --crt-glow: var(--color-primary);
+
+    --matrix-green: var(--color-primary);
+    --screen-bg: var(--color-background);
+    --chip-y: 15vh;
+    /* vertical position of both labels */
+    --chip-left-x: 16vw;
+    /* distance from LEFT edge to the left chip */
+    --chip-right-x: 15vw;
+    /* distance from RIGHT edge to the right chip */
+}
+
+@media (max-aspect-ratio: 4/3) {
+:root {
+    --chip-y: 32vh;
+    }
+}
+
+.sound-btn{
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  width: 56px;              /* give it size */
+  height: 56px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  z-index: 2147483647;      /* higher than any overlay */
+}
+
+.sound-btn .icon{
+  width: 100%;
+  height: 100%;
+  display: block;
+  filter: drop-shadow(0 0 6px var(--color-primary, #00FF66));
+}
+
+/* show PLAY by default, STOP when pressed */
+.sound-btn .icon-stop{ display: none; }
+.sound-btn[aria-pressed="true"] .icon-play{ display: none; }
+.sound-btn[aria-pressed="true"] .icon-stop{ display: block; }
+body {
+    background-color: var(--color-background);
+    font-family: "CasioFX", 'JetBrains Mono';
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    background-image: url("chip1.gif");
+}
+
+.landing {
+    position: relative;
+    margin: auto;
+    padding: 0;
+    border: 0px solid black;
+    padding: 40px;
+    background: var(--color-background);
+    isolation: isolate;
+    /* confine blending to this section */
+}
+
+.menu span {
+    display: inline-flex;
+    /* or: display:grid; place-items:center; */
+    align-items: center;
+    justify-content: center;
+    height: clamp(28px, 4.2vw, 46px);
+    /* set the pill’s height */
+    padding-block: 0;
+    /* no vertical padding */
+    padding-inline: clamp(12px, 2vw, 22px);
+    line-height: 1;
+    /* remove extra font leading */
+    text-align: center;
+    color: #E6E6E6;
+    z-index: 9999;
+    pointer-events: auto;   
+}
+
+/* left/right chip anchors */
+#works {
+    position: absolute;
+    left: 17rem;
+    z-index: 3;
+    top: 24.75%;
+    text-align: center;
+}
+
+#about {
+    position: absolute;
+    right: 21rem;
+    z-index: 3;
+    top: 41.5%;
+    text-align: center;
+}
+
+/* the decorative chip gif you added earlier */
+#chip {
+    position: absolute;
+    bottom: 0;
+    top: 1%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: .85;
+    pointer-events: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+
+    #about,
+    #works 
+    #work 
+    #home {
+        transition: filter .18s ease, text-shadow .18s ease, transform .18s ease;
+        will-change: filter, text-shadow, transform;
+    }
+
+    #about:hover {
+        filter: blur(2px) brightness(1.2);
+        font-size: 105%;
+        text-shadow: 0 0 10px var(--color-primary), 0 0 22px var(--color-primary);
+        transition: ease-in-out
+    }
+
+    #works:hover {
+        filter: blur(2px) brightness(1.2);
+        font-size: 105%;
+        text-shadow: 0 0 10px var(--color-primary), 0 0 22px var(--color-primary);
+        transition: ease-in-out
+    }
+}
+
+#headline {
+    position: absolute;
+    margin: var(--space) auto;
+    padding: var(--space);
+    top: 40rem;
+    left: 10rem;
+    font-size: clamp(4rem, 2vw, 60rem);
+    color: #E6E6E6;
+    text-shadow:
+        0.04em 0 0 var(--color-secondary),
+        -0.04em 0 0 var(--color-primary);
+    animation:
+        glitch-jitter 2.5s infinite linear alternate-reverse,
+        glitch-flicker 6s infinite steps(80);
+}
+
+#headline1 {
+    position: absolute;
+    margin: var(--space) auto;
+    padding: var(--space);
+    top: 56.5rem;
+    right: 6rem;
+    font-size: clamp(17rem, 2vw, 65rem);
+    color: #E6E6E6;
+    text-shadow:
+        0.04em 0 0 var(--color-secondary),
+        -0.04em 0 0 var(--color-primary);
+    animation:
+        glitch-jitter 2.5s infinite linear alternate-reverse,
+        glitch-flicker 6s infinite steps(80);
+}
+
+@keyframes glitch-jitter {
+    0% {
+        transform: translate(0, 0) skewX(0deg);
+        text-shadow: 0.04em 0 var(--color-secondary), -0.04em 0 var(--color-primary);
+    }
+
+    10% {
+        transform: translate(0.5px, -0.5px) skewX(1deg);
+        text-shadow: 0.08em 0 var(--color-secondary), -0.02em 0 var(--color-primary);
+    }
+
+    20% {
+        transform: translate(-0.5px, 0.5px) skewX(-0.5deg);
+    }
+
+    30% {
+        transform: translate(1px, 0.5px) skewX(0.5deg);
+    }
+
+    40% {
+        transform: translate(-1px, -0.5px) skewX(-1deg);
+        text-shadow: 0.02em 0 var(--color-secondary), -0.08em 0 var(--color-primary);
+    }
+
+    50% {
+        transform: translate(0.5px, 0) skewX(0.2deg);
+    }
+
+    60% {
+        transform: translate(-0.5px, 0) skewX(-0.2deg);
+    }
+
+    70% {
+        transform: translate(1px, -1px) skewX(1deg);
+    }
+
+    80% {
+        transform: translate(-1px, 1px) skewX(-1deg);
+    }
+
+    90% {
+        transform: translate(0.5px, -0.5px) skewX(0.5deg);
+    }
+
+    100% {
+        transform: translate(0, 0) skewX(0deg);
+        text-shadow: 0.04em 0 var(--color-secondary), -0.04em 0 var(--color-primary);
+    }
+}
+
+@keyframes glitch-flicker {
+
+    0%,
+    3%,
+    5%,
+    42%,
+    44%,
+    100% {
+        opacity: 1;
+    }
+
+    4% {
+        opacity: .6;
+    }
+
+    43% {
+        opacity: .85;
+    }
+}
+
+.swarm {
+    position: absolute;
+    inset: 0;
+    /* top/right/bottom/left: 0 */
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: transparent;
+    /* or #0b0b0b if you want a panel */
+    pointer-events: none;
+    z-index: 1;
+    /* sits behind the text/images */
+    font-family: "JetBrains Mono", monospace;
+    border-radius: 12px;
+    padding: 0;
+}
+
+/* Each flying token */
+.particle {
+    position: absolute;
+    left: 0;
+    top: 0;
+    line-height: 1;
+    white-space: nowrap;
+    letter-spacing: .5px;
+    font-weight: 700;
+    font-size: clamp(14px, 2vw, 28px);
+
+    transform: translateX(100vw);
+    animation-name: fly;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    will-change: transform;
+    mix-blend-mode: difference;
+    color: #3fd105;
+    /* white with difference gives strong inversion */
+    opacity: 0.6;
+    /* optional */
+}
+
+/* motion path */
+@keyframes fly {
+    from {
+        transform: translateX(100vw);
+    }
+
+    to {
+        transform: translateX(-12ch);
+    }
+
+    /* past the left edge */
+}
+
+/* reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .particle {
+        animation: none;
+    }
+}
+
+/* ===== Big binary-rain panel ===== */
+.boot-wrap {
+    display: flex;
+    justify-content: center;
+    padding: 32px 16px;
+    padding: 0;
+}
+
+.boot-screen {
+    position: relative;
+    width: 100vw;
+    height: 300vh;
+    /* 2× viewport height (make it 100vh–300vh as you like) */
+    border: 4px solid #000;
+    border-radius: 14px;
+    background: #1f1f1f;
+    /* bezel */
+    box-shadow: 8px 8px 0 #000;
+    overflow: hidden;
+    box-sizing: border-box;
+    place-items: center !important;
+}
+
+/* Canvas fills the panel */
+.rain {
+    position: absolute;
+    inset: 0;
+    background: var(--screen-bg, #06120a);
+    z-index: 0;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* Top/bottom fades */
+.boot-screen::before,
+.boot-screen::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 9rem;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.boot-screen::before {
+    top: 0;
+    background: linear-gradient(to bottom, var(--screen-bg, #06120a) 0%, transparent 100%);
+    opacity: .9;
+}
+
+.boot-screen::after {
+    bottom: 0;
+    background: linear-gradient(to top, var(--screen-bg, #06120a) 0%, transparent 100%);
+    opacity: .9;
+}
+
+/* Message overlay */
+.boot-overlay {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .6s ease;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    /* above canvas and fades */
+}
+
+.boot-overlay.on {
+    opacity: 1;
+}
+
+.boot-box {
+    padding: 22px 36px;
+    border: 4px solid var(--color-primary, #00FF66);
+    border-radius: var(--radius, 10px);
+    color: var(--color-primary, #00FF66);
+    background: transparent;
+    font-family: "CasioFX", "JetBrains Mono", monospace;
+    font-weight: 900;
+    font-size: clamp(28px, 6vw, 64px);
+    /* big and responsive */
+    letter-spacing: .14em;
+    text-shadow: 0 0 10px var(--color-primary, #00FF66);
+
+    /* blink 3 times when shown */
+    animation: none;
+    text-align: center;
+}
+
+.boot-overlay.on .boot-box {
+    animation: boot-blink .35s ease-in-out 15;
+}
+
+@keyframes boot-blink {
+
+    0%,
+    100% {
+        opacity: 1;
+        filter: none;
+    }
+
+    50% {
+        opacity: 0.2;
+        filter: drop-shadow(0 0 16px var(--color-primary, #00FF66));
+    }
+}
+
+/* Full-screen section under the rain */
+.booted-wrap {
+    min-height: 100vh;
+    /* fills the screen */
+    background: var(--screen-bg, #06120a);
+    display: grid;
+    place-items: center;
+    /* center the box */
+    position: relative;
+    padding: 0;
+    z-index: 2;
+}
+
+/* fade-in for the content */
+.booted-inner {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity .6s ease, transform .6s ease;
+}
+
+/* when revealed */
+.booted-wrap.on .booted-inner {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* blink the box 3x on reveal (uses your existing keyframes) */
+.booted-wrap.on .boot-box {
+    animation: boot-blink .35s ease-in-out 3;
+}
+
+/* CRT screen */
+.crt-text {
+    background: var(--crt-bg);
+    color: var(--crt-fg);
+    text-shadow: 0 0 6px var(--crt-glow), 0 0 2px var(--crt-glow);
+    font-size: var(--font-base);
+}
+
+/* ===== Computer-simulated screen ===== */
+
+.crt-wrap {
+    display: flex;
+    justify-content: center;
+    padding: 32px 16px;
+}
+
+.crt {
+    width: min(960px, 92vw);
+    border: 4px solid #000;
+    border-radius: 14px;
+    background: var(--crt-bezel);
+    box-shadow: 8px 8px 0 #000;
+    overflow: hidden;
+    position: relative;
+}
+
+/* top bar */
+.crt-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    height: 40px;
+    padding: 0 12px;
+    background: #2a2a2a;
+    color: #dcdcdc;
+    border-bottom: 4px solid #000;
+    font: 700 12px/1 system-ui, sans-serif;
+}
+
+.crt-led {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #23ff5f;
+    box-shadow: 0 0 8px #23ff5f;
+}
+
+.crt-title {
+    letter-spacing: .08em;
+    text-transform: uppercase;
+}
+
+/* screen area */
+.crt-text {
+    margin: 0;
+    padding: 20px 22px;
+    height: auto;
+    max-height: none;
+    overflow: visible;
+    /* <- no scrollbars in the box */
+    background: var(--crt-bg);
+    color: var(--crt-fg);
+    font-family: "JetBrains Mono", monospace;
+    font-size: clamp(13px, 1.15vw, 16px);
+    line-height: 1.55;
+    white-space: pre-wrap;
+    position: relative;
+    text-shadow: 0 0 6px var(--crt-glow), 0 0 2px var(--crt-glow);
+}
+
+/* scanlines + vignette */
+.crt-text::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+        repeating-linear-gradient(to bottom,
+            rgba(255, 255, 255, .06) 0 1px,
+            transparent 1px 3px);
+    mix-blend-mode: overlay;
+    opacity: .18;
+}
+
+.crt-text::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(ellipse at center, transparent 60%, rgba(0, 0, 0, .35) 100%);
+}
+
+/* blinking caret while typing */
+.crt-text[data-typing="1"]::marker {
+    content: "";
+}
+
+/* avoid bullets in some browsers */
+.crt-text[data-typing="1"]::selection {
+    background: #1a3;
+    color: #fff;
+}
+
+.crt-text[data-typing="1"] {
+    caret-color: transparent;
+}
+
+.crt-text[data-typing="1"] span.caret {
+    display: inline-block;
+    width: 0.62em;
+    border-bottom: 2px solid var(--crt-fg);
+    animation: crt-caret 1s steps(1) infinite;
+    filter: drop-shadow(0 0 4px var(--crt-glow));
+}
+
+@keyframes crt-caret {
+    50% {
+        opacity: 0;
+    }
+}
+
+/* reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .crt-text::before {
+        opacity: .08;
+    }
+
+    .crt-text span.caret {
+        animation: none;
+    }
+}
+
+/* two-column split: screen left, gif right */
+.intro-props {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(16px, 3vw, 40px);
+    align-items: center;
+    width: min(1200px, 96vw);
+    margin: 0 auto;
+    padding: clamp(16px, 4vw, 40px) 0;
+}
+
+/* ensure inner blocks fill their columns nicely */
+.intro-props .crt-wrap {
+    padding: 0;
+    display: block;
+}
+
+.intro-props .crt {
+    width: 100%;
+}
+
+.intro-props .intro img {
+    display: block;
+    width: 150%;
+    height: auto;
+}
+
+/* mobile: stack (screen first, gif second) */
+@media (max-width: 900px) {
+    .intro-props {
+        grid-template-columns: 1fr;
+    }
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+img,
+canvas,
+video {
+    display: block;
+}
+
+.landing {
+    padding-top: 0 !important;
+}
+
+.boot-screen {
+    border-top: 0;
+}
+
+.boot-screen::before {
+    height: 0;
+}
+
+.boot-wrap {
+    padding-top: 0 !important;
+}
+
+.works-overlay {
+    position: fixed;
+    /* <— not absolute */
+    inset: 0;
+    /* top/right/bottom/left: 0 */
+    height: 100dvh;
+    /* mobile-safe viewport height */
+    z-index: 10000;
+    /* higher than any site chrome */
+    pointer-events: none;
+    /* closed by default */
+}
+
+.works-overlay.open {
+    pointer-events: auto;
+}
+
+/* Right-to-left black gradient */
+.works-overlay .scrim {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to left,
+            rgba(0, 0, 0, .92) 0%,
+            rgba(0, 0, 0, .72) 35%,
+            rgba(0, 0, 0, 0) 100%);
+    transform: translateX(100%);
+    transition: transform .45s ease;
+    will-change: transform;
+}
+
+.works-overlay.open .scrim {
+    transform: translateX(0);
+}
+
+/* Sliding drawer on the right */
+.works-overlay .drawer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100dvh;
+    width: min(520px, 92vw);
+    height: 100dvh;
+    transform: translateX(100%);
+    transition: transform .45s cubic-bezier(.2, .8, .2, 1);
+    border-left: 2px solid var(--color-primary);
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    color: #E6E6E6;
+    display: flex;
+    align-content: flex-start;
+    text-align: center;
+    flex-direction: column;
+    padding: 2rem;
+}
+
+.drawer-close {
+    display: flex;
+    align-content: flex-start;
+}
+
+.works-overlay.open .drawer {
+    transform: translateX(0);
+}
+
+body {
+    overflow-x: clip;
+}
+
+.mod {
+    position: relative;
+    display: block;
+    border: 2px solid var(--color-primary);
+    border-radius: 14px;
+    overflow: visible;
+    text-decoration: none;
+    color: #e6e6e6;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    /* keep a consistent shape; change if you want */
+    border: 0;
+    /* no green border */
+}
+
+/* Use the hover-swap images but *contain* them (no crop) */
+
+.mod.mod-fade:hover::before {
+    opacity: 0;
+}
+
+.mod.mod-fade:hover::after {
+    opacity: 1;
+}
+
+/* drop-down label on hover */
+.mod .name {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translate(-50%, -60%);
+    opacity: 0;
+    padding: 6px 10px;
+    background: var(--color-primary);
+    color: #111;
+    font: 800 12px/1.1 "JetBrains Mono", monospace;
+    letter-spacing: .14em;
+    border-radius: 8px;
+    white-space: nowrap;
+    z-index: 2;
+    transition: transform .18s ease, opacity .18s ease;
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, .35));
+}
+
+.mod:hover .name {
+    transform: translate(-50%, 8px);
+    opacity: 1;
+}
+
+.mod .name::before {
+    content: "";
+    position: absolute;
+    top: -6px;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    background: var(--color-primary);
+    transform: translateX(-50%) rotate(45deg);
+    border-radius: 2px;
+}
+
+/* disabled/error tile */
+.mod.is-disabled {
+    pointer-events: none;
+    filter: grayscale(.7) opacity(.6);
+}
+
+.works-overlay.open .drawer {
+    transform: translateX(0);
+}
+
+/* Header stays put; grid below becomes the scroller */
+.drawer-head {
+    flex: 0 0 auto;
+    padding: 14px 16px;
+}
+
+.works-overlay .drawer {
+    display: flex;
+    /* header + scroller layout */
+    flex-direction: column;
+    height: 100dvh;
+}
+
+/* === dial these 2 numbers to taste === */
+:root {
+    --mod-gap: clamp(28px, 3.4vw, 56px);
+    /* space between items (bigger than before) */
+    --mod-height: clamp(210px, 32vw, 320px);
+    /* tile height → makes them look like the old big ones */
+}
+
+/* single-column list that scrolls */
+.works-overlay .drawer {
+    display: flex;
+    flex-direction: column;
+    height: 100dvh;
+}
+
+.mods {
+    flex: 1 1 auto;
+    min-height: 0;
+    /* important so overflow works */
+    overflow-y: auto;
+    padding: 14px 16px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--mod-gap);
+}
+
+.mod.mod-fade::before,
+.mod.mod-fade::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    /* full features preserved */
+    transition: opacity .25s ease;
+    image-rendering: pixelated;
+}
+
+.mod.mod-fade::before {
+    background-image: var(--img);
+    opacity: 1;
+}
+
+.mod.mod-fade::after {
+    background-image: var(--img-hover);
+    opacity: 0;
+}
+
+.mod:hover::before {
+    opacity: 0;
+}
+
+.mod:hover::after {
+    opacity: 1;
+}
+
+.mod{ position:relative; overflow:visible; }
+
+/*MODULES PAGE*/
+
+
+* { 
+    box-sizing: border-box; 
+}
+
+html, body { 
+    height: 100%; 
+}
+
+/* put this near your other layout rules */
+:root{ 
+    --modules-top-gap: clamp(96px, 10vh, 240px); 
+}
+
+body{
+  margin: 0;
+  background: var(--color-background);
+  color: #E6E6E6;               
+}
+
+.page {
+  width: min(1100px, 94vw);
+  margin-inline: auto;
+  padding: clamp(20px, 4vw, 44px) 0 80px;
+  padding-top: var(--modules-top-gap);
+}
+
+/* Title */
+.page-title{
+  margin: 24px 0 48px;
+  font-weight: 800;
+  font-size: clamp(20px, 3.2vw, 36px);
+  letter-spacing: .02em;
+  text-align: center;
+  padding: 6%;
+  line-height: 1.4;
+}
+
+/* Module block */
+.module{ 
+    margin-bottom: clamp(28px, 6vw, 56px); 
+}
+
+.module-title{
+  margin: 0 0 12px;
+  font-size: clamp(18px, 2.4vw, 28px);
+  font-weight: 800;
+}
+.module-title span{ 
+    color: var(--color-primary); 
+}
+
+/* Panel with neon top bar (uses your vars) */
+.module-panel{
+  position: relative;
+  background: #3a3a3a;                    /* panel fill behind thumbs */
+  border-radius: var(--radius);
+  padding: clamp(14px, 2.4vw, 20px);
+  overflow: hidden;
+}
+
+.module-panel::before{
+  content:"";
+  position:absolute; inset: 0 auto auto 0; /* top strip */
+  height: 6px;
+  width: 100%;
+  background: var(--color-primary);
+  box-shadow: 0 0 12px var(--color-primary);
+}
+
+/* Thumbs layout */
+/* grid columns fill available width, each card same aspect */
+.module-grid {
+  display: grid;
+  gap: clamp(16px, 3vw, 28px);
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* uniform */
+  justify-content: start;
+}
+
+/* thumbnails fill the grid cell */
+.thumb .cover-link {
+  width: 100%;
+  aspect-ratio: 16 / 9;   /* keep same ratio across all */
+  border-radius: 12px;
+  overflow: hidden;
+  display: block;
+}
+.thumb{ 
+  margin:0;
+  display:grid; 
+  align-content:start;        /* keep caption snug under image */
+  gap:.45rem;
+}
+
+
+.thumb img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transition:filter .25s ease, transform .25s ease;
+  object-position:50% 57%;
+}
+
+.thumb:hover img,
+.thumb:focus-within img{
+  filter:blur(3px) brightness(.9);
+  transform:scale(1.02);
+}
+
+.thumb figcaption{
+  font:700 12px/1.2 "JetBrains Mono", monospace;
+  color:var(--color-primary);
+  opacity:.9;
+}
+
+#PHO .module-grid,
+#GRP .module-grid {
+  justify-content: start;
+}
+
+/* thumbnail ratio */
+#PHO .cover-link,
+#GRP .cover-link {
+  aspect-ratio: 16 / 9;   /* or 4/3 if you prefer for photos */
+}
+
+#UIX .cover-link { 
+    aspect-ratio: 16/9;
+ }
+
+/* Footer */
+.foot{
+  margin-top: clamp(40px, 8vw, 96px);
+  color: #9aa;
+  font-size: 12px;
+  letter-spacing: .02em;
+}
+
+/* Responsive tweaks */
+@media (max-width: 640px) {
+  .module-grid{ grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 440px) {
+  .module-grid{ grid-template-columns: 1fr; }
+  .thumb img{ height: 220px; }
+}
+
+#home {
+    display: flex;
+    justify-content: right;
+    cursor: pointer;
+    text-decoration: none;
+    z-index: 9999; 
+    font: 800 clamp(12px,1.6vw,18px)/1;
+    text-decoration: none;
+}
+
+#work {
+    display: flex;
+    justify-content: left;
+    cursor: pointer;
+    z-index: 9999; 
+    font: 800 clamp(12px,1.6vw,18px)/1;
+    color: var(--color-primary); 
+    text-decoration: none;
+}
+
+#work:hover {
+    filter: blur(2px) brightness(1.2);
+    font-size: 105%;
+    text-shadow: 0 0 10px var(--color-primary), 0 0 22px var(--color-primary);
+    transition: ease-in-out
+}
+
+#home:hover {
+    filter: blur(2px) brightness(1.2);
+    font-size: 105%;
+    text-shadow: 0 0 10px var(--color-primary), 0 0 22px var(--color-primary);
+    transition: ease-in-out
+}
+
+/* reset anything you previously set on .thumb that clips content */
+
+a, a:visited { color: var(--color-primary); text-decoration: none; }
+
+.to-top{
+  position: fixed;
+  right: max(45vw, 2vw);
+  bottom: max(1vw, 2vw);
+  z-index: 9000;
+  width: 5rem; height: 2rem;
+  display: grid; 
+  border:#00FF66;
+  place-items: center;
+  font: 1000 20px/1 "CasioFX", "JetBrains Mono", ui-monospace, monospace;
+  color: var(--color-primary, #00db58);
+  background: rgba(0, 255, 42, 0.55);
+  box-shadow: 0 0 12px rgba(248, 252, 249, 0.25);
+  opacity: 0;                  
+  pointer-events: none;
+  transform: translateY(8px);
+  transition: opacity .2s ease, transform .2s ease;
+  cursor: pointer;
+}
+.to-top.show{
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+.to-top:hover{
+  filter: drop-shadow(0 0 8px var(--color-primary, #00FF66));
+}
+html { scroll-behavior: smooth; }
+body{
+  display:block;              /* kill earlier flex/flow-root conflicts */
+  overflow-x:hidden;          /* stop horizontal jiggle */
+  background: var(--color-background);
+  color:#E6E6E6;
+}
+
+/* -----------------------------
+   Landing hero (titles + chip)
+------------------------------ */
+.landing{
+  position:relative;
+  min-height: 100svh;         /* full screen height, mobile safe */
+  display:grid;
+  place-items:center;
+  padding: 0;                 /* your background is the chip */
+  overflow:hidden;
+}
+
+/* Particle swarm covers the landing */
+.swarm{ position:absolute; inset:0; }
+
+#headline{
+  position:absolute;
+  left: clamp(12px, 6vw, 80px);
+  bottom: clamp(18vh, 22vh, 30vh);
+  margin:0; padding:0;
+  font-size: clamp(32px, 6.2vw, 96px);
+}
+#headline1{
+  position:absolute;
+  right: clamp(12px, 6vw, 80px);
+  bottom: clamp(7vh, 10vh, 16vh);
+  margin:0; padding:0;
+  font-size: clamp(22px, 4.6vw, 64px);
+}
+
+/* Menu pills keep top positions but don’t affect layout */
+.menu{ position:absolute; inset: 0 0 auto 0; padding: clamp(8px, 2vw, 16px); }
+.menu span{
+  display:inline-grid; place-items:center;
+  padding: .2em .9em; height: clamp(28px, 4.2vw, 46px);
+}
+#works{ left: clamp(12px, 16.5vw, 24vw); top: clamp(10vh, 25vh, 28vh); }
+#about{ right: clamp(12px,15.5vw, 24vw); top: clamp(34vh, 42vh, 46vh); }
+
+/* -----------------------------
+   Boot panels
+------------------------------ */
+.boot-wrap{ padding:0; display:block; }
+.boot-screen{
+  display:grid;
+  place-items:center;       /* true centering */
+  height: 220vh;            /* can be 100–300vh; pick your vibe */
+  border:0; box-shadow:none;
+}
+.boot-overlay{
+  position:absolute; inset:0;
+  display:grid; place-items:center;
+}
+.boot-box{
+  padding: .9rem 1.4rem;
+  font-size: clamp(28px, 6vw, 64px);
+}
+
+/* “Booted” section */
+.booted-wrap{
+  min-height: 100svh;
+  display:grid; place-items:center;
+}
+
+/* -----------------------------
+   Intro props  (CRT + GIF)
+------------------------------ */
+.intro-props{
+  width: min(1200px, 96vw);
+  margin-inline:auto;
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(16px, 3vw, 40px);
+  align-items:center;
+}
+.intro-props .crt-wrap{ padding:0; }
+.intro-props .crt{ width:100%; }
+.intro-props .intro img{ width:100%; height:auto; display:block; }
+
+/* -----------------------------
+   Modules area top offset
+------------------------------ */
+:root{ --modules-top-gap: clamp(72px, 10vh, 240px); }
+.page{ width:min(1100px,94vw); margin-inline:auto; padding: clamp(20px, 4vw, 44px) 0 80px; padding-top: var(--modules-top-gap); }
+
+/* -----------------------------
+   Breakpoints
+------------------------------ */
+
+/* Tablet (≤1024px) */
+@media (max-width: 1024px){
+  #chip{ width: 100vw; height: 55vw;}
+  #headline{ font-size: clamp(28px, 5.2vw, 72px); bottom: 28vh; }
+  #headline1{ 
+    font-size: clamp(28px, 4vw, 52px); 
+    bottom: 25vh;     
+    text-align: right;
+    padding-right: 2rem;}
+  #works{ font-size: clamp(6px, 2.2vw, 11px); left: 15.85vw; top: 14vh; }
+  #about{ font-size: clamp(6px, 2.2vw, 11px); right: 15vw; top: 23vh; }
+
+  .intro-props{ bottom: 80vw; grid-template-columns: 1fr; }
+  .sound-btn{ width:44px; height:44px; right:16px; bottom:16px; }
+  .page-title{top: 10vh}
+}
+
+/* Mobile (≤480px) */
+@media (max-width: 480px){
+  #chip{ width: 200vw; height: 110vw; opacity:.85; left: 5vw}
+
+  #headline{
+    left: 5vw; bottom: 58vh;
+    font-size: clamp(24px, 9vw, 42px);
+  }
+  #headline1{
+    right: 1vw; bottom: 40vh;
+    font-size: clamp(18px, 7vw, 32px);
+    text-align: right;
+    padding-right: 2rem;
+  }
+  #works{ font-size: clamp(30px, 2.2vw, 51px); left: 3vw; top: 24vh; }
+  #about{ font-size: clamp(30px, 2.2vw, 51px); right: 52vw; top: 38vh;}
+
+  .boot-screen{ height: 180vh; }
+  .boot-box{ font-size: clamp(22px, 8vw, 36px); }
+
+  .intro-props{ grid-template-columns: 1fr; gap: 16px; }
+}

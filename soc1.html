@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link href="style-photo.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100..800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <audio id="glitch" src="music.mp3" preload="auto" loop></audio>
+    <audio id="pressSfx" src="pressing-sound.mp3" preload="auto"></audio>
+    <section>
+      <button id="soundToggle" class="sound-btn" aria-pressed="false" aria-label="Play sound">
+  <!-- PLAY icon -->
+  <svg class="icon icon-play" viewBox="0 0 24 24" aria-hidden="true">
+    <rect x="1" y="1" width="22" height="22" rx="6" ry="6" fill="rgba(0,0,0,.55)" stroke="#00FF66" stroke-width="2"/>
+    <path d="M9 7 L18 12 L9 17 Z" fill="#00FF66"/>
+  </svg>
+  <!-- STOP icon -->
+  <svg class="icon icon-stop" viewBox="0 0 24 24" aria-hidden="true">
+    <rect x="1" y="1" width="22" height="22" rx="6" ry="6" fill="rgba(0,0,0,.55)" stroke="#00FF66" stroke-width="2"/>
+    <rect x="7" y="7" width="10" height="10" fill="#00FF66"/>
+  </svg>
+</button>
+    <div class="landing">
+        <div>
+            <span id="work">WORKS</span>
+            <a id="home" href="index.html" class="menu-link">HOME</a>
+        </div>
+        <img src="chip1.gif" alt="chip" width=100% height=auto id="chip">
+    </div>
+
+    <main class="page">
+        <!-- HERO -->
+        <div class="hero-wrap">
+            <figure class="hero">
+                <img src="soc1.png" alt="Project hero image" />
+                <figcaption>#SOC_01</figcaption>
+            </figure>
+        </div>
+
+        <!-- TITLE + DATE -->
+        <div class="titlebar">
+            <h1 id="project-title">RMIT STUDENT LEADERSHIP CAMP</h1>
+            <time datetime="2025-08-13" aria-label="Date Created">July 2025</time>
+        </div>
+
+        <!-- META / DETAILS -->
+        <section class="meta" aria-labelledby="meta-title">
+            <dl>
+                <dt>Initiated:</dt>
+                <dd>July 2025</dd>
+                <dt>Creator:</dt>
+                <dd>WENDY v.17.9<br>Minh Thảo</dd>
+                <dt>File Location:</dt>
+                <dd><a href="https://www.facebook.com/photo.php?fbid=1149690500515707&set=pb.100064243047009.-2207520000&type=3"
+                        target="_blank" rel="noopener">Link to
+                        project</a></dd>
+            </dl>
+            <div class="details">
+                <strong>General:</strong>
+                <p>
+                    In System WENDY, SOC_01 represents the first exposure to design within a marketing and social media
+                    context: the visual set for RMIT Student Leadership Camp. The campaign required multiple outputs—key
+                    visual, digital signage, social posts, and advertising screens—produced at an accelerated pace.
+                    Working under strict brand guidelines and approval checks, this fragment embodies the tension
+                    between creativity and constraint. It established a crucial layer in the system’s development:
+                    learning to ideate with purpose while adapting to speed, structure, and external frameworks that
+                    shape the final form.
+                </p>
+            </div>
+        </section>
+
+        <!-- FEATURES -->
+        <h2 id="features-title">Features</h2>
+        <section class="updates" aria-labelledby="updates-title">
+            <div class="grid">
+                <section class="updates one-col" aria-labelledby="updates-title">
+                    <article class="update-card"><img src="soc1-1.png" alt=""></article>
+                    <article class="update-card"><img src="soc1-3.jpg" alt=""></article>
+                    <article class="update-card"><img src="soc1-4.jpg" alt=""></article>
+                    <article class="update-card"><img src="soc1-5.png" alt=""></article>
+                    <article class="update-card"><img src="soc1-6.png" alt=""></article>
+                    <article class="update-card"><img src="soc1-7.png" alt=""></article>
+            </div>
+        </section>
+        </section>
+
+        <footer>
+            <p><strong>Contact for bug reporting</strong><br>
+                <a href="haianh.music10@gmail.com">haianh.music10@gmail.com</a>
+            </p>
+        </footer>
+    </main>
+    <button id="backToTop" class="to-top" aria-label="Back to top" title="Back to top">▲</button>
+    <script src="script.js" defer></script>
+</body>
+</html>

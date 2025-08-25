@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>System Wendy – Modules</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <audio id="glitch" src="music.mp3" preload="auto" loop></audio>
+  <audio id="pressSfx" src="pressing-sound.mp3" preload="auto"></audio>
+    <section>
+      <button id="soundToggle" class="sound-btn" aria-pressed="false" aria-label="Play sound">
+  <!-- PLAY icon -->
+  <svg class="icon icon-play" viewBox="0 0 24 24" aria-hidden="true">
+    <rect x="1" y="1" width="22" height="22" rx="6" ry="6" fill="rgba(0,0,0,.55)" stroke="#00FF66" stroke-width="2"/>
+    <path d="M9 7 L18 12 L9 17 Z" fill="#00FF66"/>
+  </svg>
+  <!-- STOP icon -->
+  <svg class="icon icon-stop" viewBox="0 0 24 24" aria-hidden="true">
+    <rect x="1" y="1" width="22" height="22" rx="6" ry="6" fill="rgba(0,0,0,.55)" stroke="#00FF66" stroke-width="2"/>
+    <rect x="7" y="7" width="10" height="10" fill="#00FF66"/>
+  </svg>
+</button>
+  <div class="landing">
+    <div class="menu">
+      <span id="works"
+      role="button"
+      tabindex="0"
+      aria-controls="worksOverlay"
+      aria-expanded="false">WORKS</span>
+      <a id="home" href="index.html" class="menu-link">HOME</a>
+    </div>
+    <img src="chip1.gif" alt="chip" width=100% height=auto id="chip">
+    <h1 class="page-title">See what’s built up <br>SYSTEM WENDY v.19.0</h1>
+  </div>
+  <main class="page">
+    <section class="module" id="PHO">
+      <h2 class="module-title"><span>#PHO_</span> Module</h2>
+      <div class="module-panel">
+        <div class="module-grid">
+          <figure class="thumb">
+            <a class="cover-link" href="photography.html" target="_blank" rel="noopener"
+              aria-label="Open PHO_01 – Photography module">
+              <img src="pho2.jpg" alt="PHO_01">
+            </a>
+            <figcaption>#PHO_01</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- #UIX_ -->
+    <section class="module" id="UIX">
+      <h2 class="module-title"><span>#UIX_</span> Module</h2>
+      <div class="module-panel">
+        <div class="module-grid">
+          <figure class="thumb">
+            <a class="cover-link" href="uiux1.html" target="_blank" rel="noopener"
+              aria-label="Open UIX_01 – UI/UX module">
+              <img src="uix1.png" alt="UIX_01">
+            </a>
+            <figcaption>#UIX_01</figcaption>
+          </figure>
+
+          <figure class="thumb">
+            <a class="cover-link" href="uiux2.html" target="_blank" rel="noopener"
+              aria-label="Open UIX_02 – UI/UX module">
+              <img src="uix2.png" alt="UIX_02">
+            </a>
+            <figcaption>#UIX_02</figcaption>
+          </figure>
+
+          <figure class="thumb">
+            <a class="cover-link" href="uiux3.html" target="_blank" rel="noopener"
+              aria-label="Open UIX_03 – UI/UX module">
+              <img src="uix3.png" alt="UIX_03">
+            </a>
+            <figcaption>#UIX_03</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- #HDR_ -->
+    <section class="module" id="HDR">
+      <h2 class="module-title"><span>#HDR_</span> Module</h2>
+      <div class="module-panel">
+        <div class="module-grid">
+          <figure class="thumb">
+            <a class="cover-link" href="hdr1.html" target="_blank" rel="noopener"
+              aria-label="Open HDR_01 – Handrawn module">
+              <img src="hdr1.png" alt="HDR_01">
+            </a>
+            <figcaption>#HDR_01</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- #SOC_ -->
+    <section class="module" id="SOC">
+      <h2 class="module-title"><span>#SOC_</span> Module</h2>
+      <div class="module-panel">
+        <div class="module-grid">
+          <figure class="thumb">
+            <a class="cover-link" href="soc1.html" target="_blank" rel="noopener"
+              aria-label="Open HDR_01 – Social module">
+              <img src="soc1.png" alt="SOC_01">
+            </a>
+            <figcaption>#SOC_01</figcaption>
+          </figure>
+
+          <figure class="thumb">
+            <a class="cover-link" href="soc2.html" target="_blank" rel="noopener"
+              aria-label="Open SOC_02 – Social module">
+              <img src="soc2.png" alt="SOC_02">
+              </a>
+              <figcaption>#SOC_02</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- #GRP_ -->
+    <section class="module" id="GRP">
+      <h2 class="module-title"><span>#GRP_</span> Module</h2>
+      <div class="module-panel">
+        <div class="module-grid">
+          <figure class="thumb">
+            <a class="cover-link" href="grp1.html" target="_blank" rel="noopener"
+              aria-label="Open GRP_01 – Graphic module">
+              <img src="grp1.png" alt="GRP_02">
+            </a>
+              <figcaption>#GRP_01</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- #404_ -->
+    <section class="module" id="x404">
+      <h2 class="module-title"><span>#Undefined_</span> Module</h2>
+      <div class="module-panel">
+        <div class="module-grid">
+        </div>
+      </div>
+    </section>
+
+    <footer class="foot">CONTACT FOR BUG REPORTING</footer>
+  </main>
+
+  <div id="worksOverlay" class="works-overlay" aria-hidden="true">
+  <div class="scrim" data-close></div>
+  <aside class="drawer" role="dialog" aria-modal="true" aria-labelledby="drawerTitle">
+    <header class="drawer-head">
+      <button class="drawer-close" type="button" aria-label="Close">✕</button>
+      <h2 id="drawerTitle">MODULE SELECTORS</h2>
+    </header>
+
+    <div class="mods">
+      <div class="mods">
+        <a class="mod mod-fade" href="module.html" target="_blank" rel="noopener"
+          style="--img:url('elements-02.png');--img-hover:url('elements-01.png')">
+          <span class="name">PHOTOGRAPHY</span>
+        </a>
+
+        <a class="mod mod-fade" href="uiux.html" target="_blank" rel="noopener"
+          style="--img:url('elements-05.png');--img-hover:url('elements-04.png')">
+          <span class="name">UI / UX</span>
+        </a>
+
+        <a class="mod mod-fade" href="handdrawn.html" target="_blank" rel="noopener"
+          style="--img:url('elements-21.png');--img-hover:url('elements-17.png')">
+          <span class="name">HAND-DRAWN</span>
+        </a>
+
+        <a class="mod mod-fade" href="social.html" target="_blank" rel="noopener"
+          style="--img:url('elements-16.png');--img-hover:url('elements-10.png')">
+          <span class="name">SOCIAL</span>
+        </a>
+
+        <a class="mod mod-fade" href="graphic.html" target="_blank" rel="noopener"
+          style="--img:url('elements-19.png');--img-hover:url('elements-18.png')">
+          <span class="name">GRAPHIC DESIGN</span>
+        </a>
+
+        <a class="mod mod-fade is-disabled" href="#" aria-disabled="true"
+          style="--img:url('elements-09.png');--img-hover:url('elements-09.png')">
+          <span class="name">COMING SOON</span>
+        </a>
+      </div>
+      <a class="mod mod-fade" href="module.html" target="_blank" rel="noopener"
+         style="--img:url('elements-02.png');--img-hover:url('elements-01.png')">
+        <span class="name">PHOTOGRAPHY</span>
+      </a>
+    </div>
+  </aside>
+</div>
+<button id="backToTop" class="to-top" aria-label="Back to top" title="Back to top">▲</button>
+<script src="script.js" defer></script>
+</body>
+</html>

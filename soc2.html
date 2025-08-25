@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link href="style-photo.css" rel="stylesheet" type="text/css" />
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100..800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <audio id="glitch" src="music.mp3" preload="auto" loop></audio>
+    <audio id="pressSfx" src="pressing-sound.mp3" preload="auto"></audio>
+    <section>
+      <button id="soundToggle" class="sound-btn" aria-pressed="false" aria-label="Play sound">
+  <!-- PLAY icon -->
+  <svg class="icon icon-play" viewBox="0 0 24 24" aria-hidden="true">
+    <rect x="1" y="1" width="22" height="22" rx="6" ry="6" fill="rgba(0,0,0,.55)" stroke="#00FF66" stroke-width="2"/>
+    <path d="M9 7 L18 12 L9 17 Z" fill="#00FF66"/>
+  </svg>
+  <!-- STOP icon -->
+  <svg class="icon icon-stop" viewBox="0 0 24 24" aria-hidden="true">
+    <rect x="1" y="1" width="22" height="22" rx="6" ry="6" fill="rgba(0,0,0,.55)" stroke="#00FF66" stroke-width="2"/>
+    <rect x="7" y="7" width="10" height="10" fill="#00FF66"/>
+  </svg>
+</button>
+    <div class="landing">
+        <div>
+            <span id="work">WORKS</span>
+            <a id="home" href="index.html" class="menu-link">HOME</a>
+        </div>
+            <img src="chip1.gif" alt="chip" width= 100% height= auto id="chip">
+    </div>
+    <main class="page">
+
+        <!-- HERO -->
+        <div class="hero-wrap">
+            <figure class="hero">
+                <img src="soc2.png" alt="Project hero image"/>
+                <figcaption>#SOC_02</figcaption>
+            </figure>
+        </div>
+
+        <!-- TITLE + DATE -->
+        <div class="titlebar">
+            <h1 id="project-title">Onboard Series</h1>
+            <time datetime="2025-08-13" aria-label="Date Created">July 2025</time>
+        </div>
+
+        <!-- META / DETAILS -->
+        <section class="meta" aria-labelledby="meta-title">
+            <dl>
+                <dt>Initiated:</dt>
+                <dd>July 2025</dd>
+                <dt>Creator:</dt>
+                <dd>WENDY v19.0</dd>
+                <dt>File Location:</dt>
+                <dd><a href="#" target="_blank"
+                        rel="noopener">Confidential</a></dd>
+            </dl>
+            <div class="details">
+                <strong>General:</strong>
+                <p>
+                    Within System WENDY, SOC_02 expands the social module beyond pure visual design into the realm of content strategy and execution. Titled Onboard Series, the project combines videos and social posts to support new AIESEC members—creating a safe environment to voice uncertainty and grow through their onboarding phase. This fragment reflects a shift into multidisciplinary practice: from design into content development, media, and team management. It marks an integration point where graphics, narrative, and leadership converge, opening a new layer of the system’s evolution.
+                </p>
+            </div>
+        </section>
+
+        <!-- FEATURES -->
+        <section class="feature" aria-labelledby="features-title">
+            <h2 id="features-title">Features</h2>
+            <video width=100% height="auto" controls>
+                <source src="soc2video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </section>
+
+        <div class="spacer" aria-hidden="true">· · ·</div>
+
+        <footer>
+            <p><strong>Contact for bug reporting</strong><br>
+                <a href="haianh.music10@gmail.com">haianh.music10@gmail.com</a>
+            </p>
+        </footer>
+    </main>
+    <button id="backToTop" class="to-top" aria-label="Back to top" title="Back to top">▲</button>
+    <script src="script.js" defer></script>
+</body>
+</html>

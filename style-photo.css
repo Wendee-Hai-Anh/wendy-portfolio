@@ -1,0 +1,284 @@
+@font-face {
+    font-family: "CasioFX";
+    src: url("casio-fx-9860gii.woff") format("woff");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+:root {
+    --bg: #0a0a0a;
+    --fg: #E6E6E6;
+    --muted: #a9b0b8;
+    --accent: #00FF66;
+    --radius: 14px;
+    --maxw: 980px;
+    --pad: clamp(14px, 2vw, 24px);
+}
+
+* {
+    box-sizing: border-box
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font: 16px/1.55 "JetBrains Mono", ui-monospace, monospace;
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none
+}
+
+a:hover {
+    text-decoration: underline
+}
+
+.page {
+    max-width: var(--maxw);
+    margin-inline: auto;
+    padding: var(--pad);
+}
+
+/* HERO */
+.hero-wrap {
+    position: relative;
+}
+
+.hero {
+    /*border-radius:var(--radius);*/
+    overflow: hidden;
+    background: #111;
+}
+
+.hero img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    object-position: 40% 55%;
+    aspect-ratio: 16/9;
+    /* adjust if your hero is taller */
+}
+
+.hero figcaption {
+    position: absolute;
+    left: 12px;
+    bottom: 12px;
+    background: var(--accent);
+    color: var(--bg);
+    padding: .35rem .6rem;
+    /*border-radius:999px; */
+    font-size: .8rem;
+}
+
+/* TITLE ROW */
+.titlebar {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 1rem;
+    margin: .9rem 0 1.2rem;
+    font-family: "CasioFX", "JetBrains Mono", ui-monospace, monospace;
+}
+
+.titlebar h1 {
+    margin: 0;
+    font-size: clamp(22px, 2.8vw, 34px);
+    padding-top: 2rem;
+}
+
+.titlebar time {
+    color: var(--muted);
+    font-weight: 800;
+    padding-top: 2rem;
+}
+
+/* META / DETAILS */
+.meta {
+    background: #0f0f0f;
+    border: 1px solid #1b1b1b;
+    padding: 1rem;
+    display: grid;
+    gap: 1rem;
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    ;
+}
+
+.meta dl {
+    margin: 0;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: .75rem;
+    row-gap: .4rem;
+}
+
+.meta dt {
+    color: var(--muted);
+}
+
+.meta dd {
+    margin: 0;
+}
+
+.meta .details {
+    color: #d6d6d6;
+}
+
+.meta .details strong {
+    display: inline-block;
+    margin-bottom: .25rem;
+}
+
+/* FEATURES */
+
+.feature h2 {
+    margin: 0 0 .6rem;
+    color: var(--accent);
+    font-size: clamp(16px, 2.1vw, 22px);
+    padding-top: 2rem;
+}
+
+.feature img {
+    width: 100%;
+    display: block;
+    background: #111;
+    object-fit: cover;
+    object-position: center;
+    aspect-ratio: 2.95/4;
+}
+
+/* tiny spacer dots*/
+.spacer {
+    text-align: center;
+    letter-spacing: .35em;
+    color: #333;
+    padding: .6rem 0;
+}
+
+/* UPDATES LIST */
+.updates {
+    margin: .6rem 0 2.2rem;
+}
+
+.updates h2 {
+    margin: 0 0 .8rem;
+    color: var(--accent);
+    font-size: clamp(16px, 2.1vw, 22px);
+}
+
+.updates .grid {
+    display: grid;
+    gap: 1rem;
+}
+
+.update-card {
+    background: #0f0f0f;
+    border: 1px solid #1b1b1b;
+    padding: .6rem;
+    aspect-ratio: 16/9;
+}
+
+.update-card img {
+    width: 100%;
+    display: block;
+    background: #111;
+    object-fit: cover;
+    aspect-ratio: 16/9;
+}
+
+#pho3 {
+    object-position: 40% 35%;
+}
+
+#pho4 {
+    object-position: 40% 60%;
+}
+
+#pho5 {
+    object-position: 40% 42%;
+}
+
+#pho6 {
+    object-position: 40% 30%;
+}
+
+#pho7 {
+    object-position: 40% 35%;
+}
+
+/* FOOTER */
+footer {
+    border-top: 1px dashed #1c1c1c;
+    color: var(--muted);
+    padding: 2rem 0 3rem;
+    font-size: .95rem;
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    ;
+}
+
+#hdr1-1 {
+    transform: scale(80%)
+}
+
+/* One-column list for the Details section */
+.updates.one-col .grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* center the column */
+    gap: 1.2rem;
+}
+
+/* Size of each item (adjust to taste) */
+.updates.one-col .update-card {
+    width: min(1000px, 94vw);
+    /* max width for each image */
+    padding: .6rem;
+    /* keep your frame look */
+    background: #0f0f0f;
+    border: 1px solid #1b1b1b;
+
+    /* kill any forced aspect from global rules */
+    aspect-ratio: auto !important;
+}
+
+/* Show the whole image; no cropping */
+.updates.one-col .update-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+    /* 'cover' if you prefer cropping */
+    aspect-ratio: auto !important;
+    border-radius: 8px;
+}
+
+.grid {
+    display: flex;
+    justify-content: center;
+}
+
+.feature19x16 {
+    width: min(1020px, 96vw);
+}
+
+.feature19x16 .win .media>img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+}
+
+@media (max-width: 1024px){
+  #work{ font-size: clamp(6px, 2.2vw, 11px); left: 15.85vw; top: 14vh; }
+  #home{ font-size: clamp(6px, 2.2vw, 11px); position: right;}
+}
+
+/* Mobile (≤480px) */
+@media (max-width: 480px) {
+  #work{ font-size: clamp(30px, 2.2vw, 51px); left: 15.85vw; top: 14vh; }
+  #home{ font-size: clamp(30px, 2.2vw, 51px); position: right}
+}
